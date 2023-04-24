@@ -1,0 +1,99 @@
+.nav {
+    flex: .8;
+    border-right: 1px solid #EFF1F6;
+    height: 94vh;
+    padding-top: 1rem;
+}
+
+/* Top Section */
+.top {
+    text-align: left;
+    padding-left: 3rem;
+}
+
+.logo {
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+
+/* Middle Section */
+.middle {
+    width: 100%;
+    padding-top: 3rem;
+}
+
+.icon {
+    margin-left: 3rem;
+}
+
+.link {
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: .5rem;
+    font-size: 14px;
+    margin-bottom: 1rem;
+    color: #56616B;
+    font-weight: bold;
+}
+
+.icon {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+p {
+    color: #56616B;
+    margin-left: 3rem;
+    font-size: 11px;
+    margin-top: 2rem;
+}
+
+
+/* Bottom Section */
+.bottom {
+    margin-top: 4rem;
+    display: flex;
+    margin-left: 3rem;
+    justify-content: left;
+    gap: 3.6rem;
+    align-items: center;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+.avatar_img {
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+}
+
+.avatar_name {
+    font-weight: bold;
+    color: #56616B;
+}
+
+@media screen and (max-width: 768px) {
+    .avatar {
+        flex-direction: column;
+        justify-content: left;
+        text-align: left;
+    }
+
+    .avatar_img {
+        margin-left: -1.5rem;
+    }
+
+    .icon_dot {
+        font-size: 1.5rem;
+        margin-right: .3rem;
+    }
+}
