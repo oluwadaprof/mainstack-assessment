@@ -1,8 +1,10 @@
 .nav {
-    flex: .7;
+    flex: .8;
     border-right: 1px solid #EFF1F6;
-    height: 94vh;
+    height: 98vh;
     padding-top: 1rem;
+    display: none;
+    z-index: 4;
 }
 
 /* Top Section */
@@ -14,6 +16,13 @@
 .logo {
     height: 3.5rem;
     width: 3.5rem;
+}
+
+.close_icon{
+    position:relative;
+    left: 6rem;
+    top: -2rem;
+    font-size: 1.6rem;
 }
 
 
@@ -101,6 +110,17 @@ p {
 
 @media screen and (max-width: 767px) {
     .nav{
-        display: none;
+        display: block;
+        z-index: 999;
+        border-right: 1px solid #EFF1F6;
+        /* background: red; */
+        width: 16rem;
+        position: absolute;
+        background:#EFF1F6 ;
+    }
+
+    .close_icon{
+        font-size: 1.8rem;
+        top: -1rem;
     }
 }

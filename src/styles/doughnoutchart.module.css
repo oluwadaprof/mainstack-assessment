@@ -1,0 +1,46 @@
+.doughnut{
+    margin-left: 3rem;
+    margin-top: 2rem;
+    border-radius: 5px;
+    border: 1px solid #EFF1F6;
+    margin-right: 2rem;
+    height: auto;
+    margin-bottom: 2rem;
+    width:60%;
+    height: auto;
+    padding-inline: 1.4rem;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.doughnut p{
+    font-weight: 500;
+    font-size: 18px;
+    margin-left: 0;
+}
+.doughnut span{
+    color: #FF5403;
+    font-size: 14px;
+}
+
+.canvas{
+    display: flex;
+    flex-direction: column;
+}
+
+#canvas-container {
+    max-height: 60vh;
+    max-width: 60vw;
+    position: relative;
+ }
+
+ @media (min-width: 768px) {
+     #canvas-container {
+         height: auto;
+         width: auto;
+      }
+ }

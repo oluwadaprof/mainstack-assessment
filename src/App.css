@@ -1,6 +1,22 @@
 .App {
   display: flex;
+ 
 }
+
+/* .App .dashboard{
+  margin-left: 20rem;
+} */
+
+/* @media  screen and (max-width: 768px) {
+ .App .dashboard{
+    margin-left: 15rem;
+  }
+}
+@media  screen and (max-width: 767px) {
+ .App .dashboard{
+    margin-left: 1rem;
+  }
+} */
 
 
 
