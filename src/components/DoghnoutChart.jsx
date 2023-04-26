@@ -8,7 +8,7 @@ import { GH } from "country-flag-icons/react/3x2";
 import { GR } from "country-flag-icons/react/3x2";
 import { GB } from "country-flag-icons/react/3x2";
 
-export default function DoghnoutChart({}) {
+export default function DoghnoutChart() {
   const flags = [
     <NG title="Nigeria" className={classes.flag} />,
     <GR title="Germany" className={classes.flag} />,
@@ -113,7 +113,7 @@ export default function DoghnoutChart({}) {
           height: "200px",
           position: "absolute",
           marginLeft: "20rem",
-          marginTop: "-39rem",
+          marginTop: "-45rem",
           flexDirection: "row",
         }}
       />

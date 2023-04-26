@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import classes from "../styles/pageview.module.css";
-import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import { useQuery } from "react-query";
 
@@ -40,7 +39,7 @@ export default function PageView() {
     return res.json();
   };
 
-  const { data, error, isLoading } = useQuery("randomFacts", getFacts);
+  const { data } = useQuery("randomFacts", getFacts);
   console.log(data)
 
   // Error and Loading states

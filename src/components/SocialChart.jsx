@@ -4,7 +4,7 @@ import { Doughnut } from "react-chartjs-2";
 import { useQuery } from "react-query";
 import { SocialIcon } from "react-social-icons";
 
-export default function SocialChart({}) {
+export default function SocialChart() {
   useEffect(() => {
     async function fetchData() {
       await getFacts();
@@ -107,12 +107,12 @@ export default function SocialChart({}) {
           height: "200px",
           position: "absolute",
           marginLeft: "20rem",
-          marginTop: "-30rem",
+          marginTop: "-33rem",
           flexDirection: "row",
         }}
       />
 
-      {/* </div> */}
+    
     </div>
   );
 }
