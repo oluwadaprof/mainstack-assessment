@@ -41,13 +41,14 @@ export default function PageView() {
   };
 
   const { data, error, isLoading } = useQuery("randomFacts", getFacts);
+  console.log(data)
 
   // Error and Loading states
 
 
   // Using the hook
 
-  const viewsArray = Object.keys(data.graph_data?.views).map(
+  const viewsArray = Object.keys(data.graph_data.views).map(
     (date) => `${date} `
   );
   console.log(viewsArray);
@@ -61,8 +62,8 @@ export default function PageView() {
         // label: "My First dataset",
         // backgroundColor: "rgb(255, 99, 132)",
         // borderColor: "rgb(255, 99, 132)",
-        data: Object.keys(data.graph_data?.views).map(
-          (date) => `${data.graph_data?.views[date]}`
+        data: Object.keys(data.graph_data.views).map(
+          (date) => `${data.graph_data.views[date]}`
         ),
         fill: {
           target: "origin",
@@ -72,9 +73,9 @@ export default function PageView() {
       },
     ],
   };
-  if (isLoading) {
-        <div>Loading..</div>;
-     }  
+  // if (isLoading) {
+  //       <div>Loading..</div>;
+  //    }  
 
   return (
     <section className={classes.pageview}>
