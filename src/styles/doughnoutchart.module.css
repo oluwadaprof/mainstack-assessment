@@ -71,10 +71,15 @@ header{
  .percent{
     font-size: 12px;
  }
+.flag{
+    border-radius: 1%;
+    width: 2rem;
+    height: 3rem;
 
+}
  @media (min-width: 768px) {
-     #canvas-container {
+     /* #canvas-container {
          height: auto;
          width: auto;
-      }
+      } */
  }

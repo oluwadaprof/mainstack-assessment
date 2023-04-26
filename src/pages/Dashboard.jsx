@@ -4,6 +4,7 @@ import { FiMenu } from "react-icons/fi";
 import MobileNav from "../components/MobileNav";
 import PageView from "../components/PageView";
 import DoghnoutChart from "../components/DoghnoutChart";
+import SocialChart from "../components/SocialChart";
 
 export const Dashboard = () => {
 // States
@@ -92,7 +93,7 @@ export const Dashboard = () => {
 
       <section className={classes.doughnut}>
         <DoghnoutChart/>
-        <DoghnoutChart/>
+        <SocialChart/>
       </section>
     </section>
   );

@@ -2,21 +2,9 @@ import React, { useEffect } from "react";
 import classes from "../styles/doughnoutchart.module.css";
 import { Doughnut } from "react-chartjs-2";
 import { useQuery } from "react-query";
-import { NG } from "country-flag-icons/react/3x2";
-import { FI } from "country-flag-icons/react/3x2";
-import { GH } from "country-flag-icons/react/3x2";
-import { GR } from "country-flag-icons/react/3x2";
-import { GB } from "country-flag-icons/react/3x2";
+import { SocialIcon } from "react-social-icons";
 
-export default function DoghnoutChart({}) {
-  const flags = [
-    <NG title="Nigeria" className={classes.flag} />,
-    <GR title="Germany" className={classes.flag} />,
-    <GH title="Ghana" className={classes.flag} />,
-    <FI title="Finland" className={classes.flag} />,
-    <GB title="United Kingdom" className={classes.flag} />,
-  ];
-  const colors = ["#599EEA", "#844FF6", "#0FB77A", "#FAB70A", "#F09468"];
+export default function SocialChart({}) {
   useEffect(() => {
     async function fetchData() {
       await getFacts();
@@ -36,23 +24,21 @@ export default function DoghnoutChart({}) {
   if (error) return <div>Request Failed</div>;
   if (isLoading) return <div>Loading...</div>;
 
-  const topLocation = data.top_locations;
+  const topSources = data.top_sources;
 
-  console.log(topLocation);
+  console.log(topSources);
 
   const dataFetched = {
-    labels: topLocation.map(({ country }) => country),
+    labels:  topSources.map(({ source }) => source),
     datasets: [
       {
-        label: 'my',
-        data: topLocation.map((location)=>location.percent),
+        label: "",
+        data: topSources.map((location)=>location.percent),
 
         backgroundColor: [
-          "#599EEA",
-          "#844FF6",
-          "#0FB77A",
-          "#FAB70A",
-          "#F09468",
+          "rgb(255, 99, 132)",
+          "rgb(54, 162, 235)",
+          "rgb(255, 205, 86)",
         ],
         hoverOffset: 4,
       },
@@ -81,23 +67,31 @@ export default function DoghnoutChart({}) {
           font: {
             size: 12,
           },
+
         },
       },
     },
   };
+  const socialIcons = [
+    <SocialIcon network="google" style={{ height: 25, width: 25 }} />,
+    <SocialIcon network="instagram" style={{ height: 25, width: 25 }} />,
+    <SocialIcon network="facebook" style={{ height: 25, width: 25 }} />,
+    <SocialIcon network="linkedin" style={{ height: 25, width: 25 }} />,
+  ];
+  const colors = ["#599EEA", "#844FF6", "#0FB77A", "#FAB70A", "#F09468"];
 
   return (
     <div className={classes.doughnut}>
       <header>
-        <p>Top Location</p>
+        <p>Top Referal Source</p>
         <span>View full reports</span>
       </header>
-      {topLocation.map(({ country, percent, count }, index) => (
+      {topSources.map(({ source, percent, count }, index) => (
         <ul key={index}>
           <li>
-            {flags[index]}{" "}
+            {socialIcons[index]}{" "}
             {/* Render the flag component at the corresponding index */}
-            {country} <span className={classes.percent}>{percent}%</span>{" "}
+            {source} <span className={classes.percent}>{percent}%</span>{" "}
             <div
               style={{ backgroundColor: colors[index % colors.length] }}
               className={classes.circle}
@@ -113,10 +107,11 @@ export default function DoghnoutChart({}) {
           height: "200px",
           position: "absolute",
           marginLeft: "20rem",
-          marginTop: "-39rem",
+          marginTop: "-30rem",
           flexDirection: "row",
         }}
       />
+
       {/* </div> */}
     </div>
   );
