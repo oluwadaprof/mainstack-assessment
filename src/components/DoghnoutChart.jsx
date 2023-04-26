@@ -1,30 +1,31 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import classes from "../styles/doughnoutchart.module.css";
 import { Doughnut } from "react-chartjs-2";
 import { useQuery } from "react-query";
 
 export default function DoghnoutChart() {
+  useEffect(() => {
+    async function fetchData() {
+      await getFacts();
+    }
+    fetchData();
+  }, []);
 
-    useEffect(() => {
-        async function fetchData() {
-          await getFacts();
-        }
-        fetchData();
-      }, []);
-    
-      // Fetcher function
-      const getFacts = async () => {
-        const res = await fetch("https://fe-task-api.mainstack.io/");
-        return res.json();
-      };
-    
-      const { data, error, isLoading } = useQuery("randomFacts", getFacts);
-    
-        // Error and Loading states
-        if (error) return <div>Request Failed</div>;
-        if (isLoading) return <div>Loading...</div>;
+  // Fetcher function
+  const getFacts = async () => {
+    const res = await fetch("https://fe-task-api.mainstack.io/");
+    return res.json();
+  };
 
+  const { data, error, isLoading } = useQuery("randomFacts", getFacts);
 
+  // Error and Loading states
+  if (error) return <div>Request Failed</div>;
+  if (isLoading) return <div>Loading...</div>;
+
+  const topLocation = data.top_locations;
+
+  console.log(topLocation);
 
   const dataFetched = {
     labels: ["Red", "Blue", "Yellow"],
@@ -56,7 +57,7 @@ export default function DoghnoutChart() {
     },
     plugins: {
       legend: {
-        display: true,
+        display: false,
         labels: {
           display: true,
           position: "left",
@@ -79,13 +80,26 @@ export default function DoghnoutChart() {
         <p>Top Location</p>
         <span>View full reports</span>
       </header>
-      <div id="canvas-container">
+      <div id="canvas-container" className={classes.label}>
+        {topLocation.map(({ country, percent, count }) => (
+          <ul key={percent} >
+            <li>
+              {country} <span className={classes.percent}>{percent}</span>{" "}
+              <div className={classes.circle}></div>
+            </li>
+            {/* <li>Nigeria <span className={classes.percent}>20%</span><div className={classes.circle}></div></li>
+            <li>Nigeria <span className={classes.percent}>20%</span><div className={classes.circle}></div></li>
+            <li>Nigeria <span className={classes.percent}>20%</span><div className={classes.circle}></div></li>
+            <li>Nigeria <span className={classes.percent}>20%</span><div className={classes.circle}></div></li>
+            <li>Nigeria <span className={classes.percent}>20%</span><div className={classes.circle}></div></li> */}
+          </ul>
+        ))}
         <Doughnut
           data={dataFetched}
           options={options}
           style={{
-            width: "300px",
-            height: "300px",
+            width: "200px",
+            height: "200px",
             marginLeft: "10rem",
             flexDirection: "row",
           }}

@@ -4,11 +4,11 @@
     border-radius: 5px;
     border: 1px solid #EFF1F6;
     margin-right: 2rem;
-    height: auto;
+    height:25rem;
     margin-bottom: 2rem;
     width:60%;
-    height: auto;
     padding-inline: 1.4rem;
+    padding-bottom: 1rem;
 }
 
 header{
@@ -29,13 +29,47 @@ header{
 
 .canvas{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
 #canvas-container {
-    max-height: 60vh;
-    max-width: 60vw;
-    position: relative;
+    max-height: 10vh;
+    max-width: 10vw;
+    display: flex;
+    position: absolute;
+ }
+
+ .label{
+     position: absolute;
+  
+  
+ }
+
+ ul{
+    list-style: none;
+    display: flex;
+ }
+ li{
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+ }
+ .label li{
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center;
+    gap: 1rem; */
+ }
+
+ .circle{
+    border-radius: 50%;
+    height: .6rem;
+    width: .6rem;
+    background-color: red;
+ }
+
+ .percent{
+    font-size: 12px;
  }
 
  @media (min-width: 768px) {

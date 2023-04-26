@@ -7,12 +7,25 @@ import { useQuery } from "react-query";
 export default function PageView() {
   const options = {
     maintainAspectRatio: false, // Don't maintain w/h ratio
+   plugins:{
+    legend:{
+      display:false,
+    },
+   },
     scales: {
       y: {
-        gridLines: {
-          display: false,
+        border:{dash: [4, 4]},
+        ticks: {
+          stepSize: 20,
         },
+       
+        
       },
+      x:{
+        grid: {
+          display: false
+        },
+      }
     },
   };
 
@@ -48,6 +61,7 @@ export default function PageView() {
     labels: labels,
     datasets: [
       {
+        
         // label: "My First dataset",
         // backgroundColor: "rgb(255, 99, 132)",
         // borderColor: "rgb(255, 99, 132)",
@@ -56,8 +70,8 @@ export default function PageView() {
         ),
         fill: {
           target: 'origin',
-          above: 'rgb(255, 0, 0)',   // Area will be red above the origin
-          below: 'rgb(0, 0, 255)'    // And blue below the origin
+          above: 'rgb(0, 0, 255)',   // Area will be red above the origin
+          below: ' rgb(255, 0, 0)'    // And blue below the origin
         }
       },
       
