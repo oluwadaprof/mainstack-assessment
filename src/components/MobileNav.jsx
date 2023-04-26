@@ -32,7 +32,7 @@ export default function MobileNav({handleRemoveMenu, setMobileNav}) {
         return () => {
           document.removeEventListener('click', handleClickOutside);
         };
-      }, [menuRef]);
+      }, );
 
       return (
         <nav className={classes.nav} >
