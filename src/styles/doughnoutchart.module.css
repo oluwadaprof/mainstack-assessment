@@ -54,12 +54,7 @@ header{
     align-items: center;
     gap: .8rem;
  }
- .label li{
-    /* display: flex; */
-    /* justify-content: center;
-    align-items: center;
-    gap: 1rem; */
- }
+
 
  .circle{
     border-radius: 50%;
@@ -70,6 +65,7 @@ header{
 
  .percent{
     font-size: 12px;
+    color: black;
  }
 .flag{
     border-radius: 1%;

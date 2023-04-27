@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from "../styles/pageview.module.css";
 import { Line } from "react-chartjs-2";
 import { useQuery } from "react-query";
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
+
+
 
 export default function PageView() {
   const options = {
@@ -26,36 +30,28 @@ export default function PageView() {
     },
   };
 
-  useEffect(() => {
-    async function fetchData() {
-      await getFacts();
-    }
-    fetchData();
-  }, []);
-
   // Fetcher function
   const getFacts = async () => {
     const res = await fetch("https://fe-task-api.mainstack.io/");
     return res.json();
   };
 
-  const { data } = useQuery("randomFacts", getFacts);
-  console.log(data)
+  const { data, isError, isLoading } = useQuery("randomFacts", getFacts);
 
   // Error and Loading states
 
+  if (isLoading) {
+    return <div>Loading..</div>;
+  }
 
-  // Using the hook
+  if (isError) {
+    return <div>Error fetching data</div>;
+  }
 
-  const viewsArray = Object.keys(data.graph_data.views).map(
-    (date) => `${date} `
-  );
-  console.log(viewsArray);
-
-  const labels = viewsArray;
+  console.log(data);
 
   const dataOne = {
-    labels: labels,
+    labels: Object.keys(data.graph_data.views),
     datasets: [
       {
         // label: "My First dataset",
@@ -64,17 +60,20 @@ export default function PageView() {
         data: Object.keys(data.graph_data.views).map(
           (date) => `${data.graph_data.views[date]}`
         ),
-        fill: {
-          target: "origin",
-          above: "rgb(0, 0, 255)", // Area will be red above the origin
-          below: " rgb(255, 0, 0)", // And blue below the origin
+        fill: "start",
+        backgroundColor: (context) => {
+          const ctx = context.chart.ctx;
+          const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+          gradient.addColorStop(0, " rgba(250,174,50,0)");
+          gradient.addColorStop(1, "rgba(250,174,50,1)");
+          return gradient;
         },
       },
     ],
   };
-  // if (isLoading) {
-  //       <div>Loading..</div>;
-  //    }  
+  if (isLoading) {
+    <div>Loading..</div>;
+  }
 
   return (
     <section className={classes.pageview}>
@@ -88,3 +87,17 @@ export default function PageView() {
     </section>
   );
 }
+
+// const viewsArray = Object.keys(data?.graph_data?.views).map(
+//   (date) => `${date} `
+// );
+// console.log(viewsArray);
+
+// const labels = viewsArray;
+
+ // data: Object.values(data?.graph_data?.views),
+        // fill: {
+        //   target: "start",
+        //   // above: "#FF5403", // Area will be red above the origin
+        //   below: " rgb(255, 0, 0)", // And blue below the origin
+        // },
