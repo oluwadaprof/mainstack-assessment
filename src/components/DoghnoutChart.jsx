@@ -38,7 +38,7 @@ export default function DoghnoutChart() {
 
   const topLocation = data.top_locations;
 
-  console.log(topLocation);
+
 
   const dataFetched = {
     labels: topLocation.map(({ country }) => country),
@@ -97,7 +97,7 @@ export default function DoghnoutChart() {
           <li>
             {flags[index]}{" "}
             {/* Render the flag component at the corresponding index */}
-            {country} <span className={classes.percent}>{percent}%</span>{" "}
+            {country} <div className={classes.percent}>{percent}%</div>{" "}
             <div
               style={{ backgroundColor: colors[index % colors.length] }}
               className={classes.circle}

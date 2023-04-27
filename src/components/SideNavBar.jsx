@@ -1,12 +1,21 @@
 import classes from "../styles/sidenavbar.module.css";
 import logo from "../assets/mainstack-logo.png";
 import { NavLink } from "react-router-dom";
-import { IoIosPaper } from "react-icons/io";
-import { FaRegUserCircle } from "react-icons/fa";
-import { FiSettings } from "react-icons/fi";
 import { TbLayoutDashboard } from "react-icons/tb";
 import avatar from "../assets/blessing.png";
 import { RxDotsHorizontal } from "react-icons/rx";
+import { GiPencil } from "react-icons/gi";
+import { HiOutlineUsers } from "react-icons/hi";
+import { GiSandsOfTime } from "react-icons/gi";
+import { TbCameraPlus } from "react-icons/tb";
+import { CiPillsBottle1 } from "react-icons/ci";
+import { CiYoutube } from "react-icons/ci";
+import { HiOutlineNewspaper } from "react-icons/hi";
+import { IoAlarmOutline } from "react-icons/io5";
+
+
+
+
 
 export default function SideNavBar() {
   const navLinkStyle = ({ isActive }) => {
@@ -28,41 +37,41 @@ export default function SideNavBar() {
           <span>Dashboard</span>
         </NavLink>
         <NavLink to="/1" className={`${classes.link}`} style={navLinkStyle}>
-          <IoIosPaper className={classes.icon} />
+          <GiPencil className={classes.icon} />
           <span>Item 1</span>
         </NavLink>
         <NavLink to="/2" className={`${classes.link}`} style={navLinkStyle}>
-          <FaRegUserCircle className={classes.icon} />
+          <HiOutlineUsers className={classes.icon} />
           <span>Item 2</span>
         </NavLink>
         <NavLink to="/3" className={`${classes.link}`} style={navLinkStyle}>
-          <FiSettings className={classes.icon} />
+          <GiSandsOfTime className={classes.icon} />
           <span>Item 3</span>
         </NavLink>
 
         <div>
           <p>OTHERS 1</p>
           <NavLink to="/4" className={`${classes.link}`} style={navLinkStyle}>
-            <FaRegUserCircle className={classes.icon} />
+            <TbCameraPlus className={classes.icon} />
             <span>Item 4</span>
           </NavLink>
           <NavLink to="/5" className={`${classes.link}`} style={navLinkStyle}>
-            <FiSettings className={classes.icon} />
+            <CiPillsBottle1 className={classes.icon} />
             <span>Item 5</span>
           </NavLink>
         </div>
         <div>
           <p>OTHERS 2</p>
           <NavLink to="/6" className={`${classes.link}`} style={navLinkStyle}>
-            <FaRegUserCircle className={classes.icon} />
+            <CiYoutube className={classes.icon} />
             <span>Item 6</span>
           </NavLink>
           <NavLink to="/7" className={`${classes.link}`} style={navLinkStyle}>
-            <FiSettings className={classes.icon} />
+            <HiOutlineNewspaper className={classes.icon} />
             <span>Item 7</span>
           </NavLink>
           <NavLink to="/8" className={`${classes.link}`} style={navLinkStyle}>
-            <FiSettings className={classes.icon} />
+            <IoAlarmOutline className={classes.icon} />
             <span>Item 8</span>
           </NavLink>
         </div>

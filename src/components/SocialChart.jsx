@@ -91,7 +91,7 @@ export default function SocialChart() {
           <li>
             {socialIcons[index]}{" "}
             {/* Render the flag component at the corresponding index */}
-            {source} <span className={classes.percent}>{percent}%</span>{" "}
+            {source} <div className={classes.percent}>{percent}%</div>{" "}
             <div
               style={{ backgroundColor: colors[index % colors.length] }}
               className={classes.circle}

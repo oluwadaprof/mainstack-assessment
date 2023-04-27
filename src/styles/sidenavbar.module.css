@@ -38,6 +38,11 @@
     margin-bottom: 1rem;
     color: #56616B;
     font-weight: bold;
+    padding-block: .4rem;
+}
+
+.link:hover{
+    background: #EFF1F6;
 }
 
 .icon {
