@@ -27,25 +27,22 @@ export default function PageView() {
       },
     },
   };
-
-  useEffect(() => {
-    async function fetchData() {
-      await getFacts();
-    }
-    fetchData();
-  }, []);
-
-  // Fetcher function
   const getFacts = async () => {
     const res = await fetch("https://fe-task-api.mainstack.io/");
     return res.json();
   };
-
+ 
   const { data, error, isLoading } = useQuery("randomFacts", getFacts);
+
+  // console.log(data);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
 
   // Error and Loading states
   if (error) return <div>Request Failed</div>;
-  
 
   const dataOne = {
     labels: Object.keys(data?.graph_data.views),
@@ -85,3 +82,5 @@ export default function PageView() {
     </section>
   );
 }
+
+
